@@ -16,6 +16,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+	color: #fafafa;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -52,14 +53,71 @@ table {
   box-sizing: border-box;
 }
 
+html {
+	height: 100%;
+}
+
 body {
   display: flex;
+	height: 100%;
   flex-direction: column;
   align-items: center;
   background: #0e0e0e;
   gap: 20px;
 }
 
+@font-face {
+  font-family: ProtestStrike;
+  src:  url('./ProtestStrike-Regular.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 /*********************************************************/
-/* Element Styles */
+/* Home Content */
 /*********************************************************/
+#content {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4rem;;
+}
+
+/* https://coder-coder.com/background-image-opacity/ */
+/* 
+To make that pseudo-element the same size as the parent, 
+you’ll have to absolutely position it and set its top, right, bottom, 
+and left values to zero so it doesn’t collapse. 
+
+Also, as a pseudo-element, it needs to have the content property set, 
+otherwise it won’t show up on the page. 
+*/
+#content::before {
+	position: absolute;
+	content:'';
+	background: url(./img/doublepizza.jpg) no-repeat center center / cover;
+	z-index: -1;
+	opacity: 0.4;
+	top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+#content h1 {
+	font-size: 2rem;
+	font-family: 'ProtestStrike';
+}
+
+.text {
+	display: flex;
+	font-size: 1.25rem;
+	line-height: 1.2;
+	flex-direction: column;
+	gap: 20px;
+}
