@@ -2,42 +2,30 @@ import home from './home.js';
 import menu from './menu.js';
 import about from './about.js';
 
-const homeBtn = document.getElementById('home-btn');
-const menuBtn = document.getElementById('menu-btn');
-const aboutBtn = document.getElementById('about-btn');
+const tab = Array.from(document.getElementsByTagName('button'));
 
 home();
 
-homeBtn.addEventListener('click', (e) => {
-  const btn = e.target;
-  if (btn.getAttribute('aria-selected') == 'false') {
-    btn.setAttribute('aria-selected', 'true');
-    menuBtn.setAttribute('aria-selected', 'false');
-    aboutBtn.setAttribute('aria-selected', 'false');
-    home();
-  }
+tab.forEach((t) => {
+  t.addEventListener('click', (e) => {
+    if (e.target.getAttribute('aria-selected') == 'false') {
+      tab.forEach((t) => {
+        t.setAttribute('aria-selected', false);
+      });
+      e.target.setAttribute('aria-selected', 'true');
+      switch (e.target.getAttribute('id')) {
+        case 'home-btn':
+          home();
+          break;
+        case 'menu-btn':
+          menu();
+          break;
+        case 'about-btn':
+          about();
+          break;
+        default:
+          break;
+      }
+    }
+  });
 });
-
-menuBtn.addEventListener('click', (e) => {
-  const btn = e.target;
-  if (btn.getAttribute('aria-selected') == 'false') {
-    btn.setAttribute('aria-selected', 'true');
-    homeBtn.setAttribute('aria-selected', 'false');
-    aboutBtn.setAttribute('aria-selected', 'false');
-    menu();
-  }
-});
-
-aboutBtn.addEventListener('click', (e) => {
-  const btn = e.target;
-  if (btn.getAttribute('aria-selected') == 'false') {
-    btn.setAttribute('aria-selected', 'true');
-    homeBtn.setAttribute('aria-selected', 'false');
-    menuBtn.setAttribute('aria-selected', 'false');
-    about();
-  }
-});
-
-console.log('This is a webpack template');
-
-// npm start to view in browser
