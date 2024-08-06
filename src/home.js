@@ -3,6 +3,7 @@ import Logo from './img/lafayettelogowhite.png';
 
 const home = () => {
   const content = document.getElementById('content');
+  content.innerHTML = '';
 
   const logo = new Image();
   logo.src = Logo;

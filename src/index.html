@@ -6,12 +6,12 @@
   </head>
   <body>
     <header>
-      <nav>
-        <button>Home</button>
-        <button>Menu</button>
-        <button>About</button>
+      <nav role="tablist" aria-label="Main Menu">
+        <button id="home-btn" role="tab" aria-selected="true">Home</button>
+        <button id="menu-btn" role="tab" aria-selected="false">Menu</button>
+        <button id="about-btn" role="tab" aria-selected="false">About</button>
       </nav>
     </header>
-    <div id="content"></div>
+    <div id="content" role="tabpanel" aria-labelledby="home-btn"></div>
   </body>
 </html>
