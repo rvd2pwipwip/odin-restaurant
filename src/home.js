@@ -18,6 +18,7 @@ const home = () => {
   description.innerHTML =
     'Lafayette Pizzeria est situé sur la rue Bernard dans le plateau Mont-Royal à quelques pas du parc du Mont-Royal. Lafayette Pizzeria a le plaisir de servir des clients satisfaits depuis 1962!<br><br>VENEZ CHATOUILLER VOS PAPILLES GUSTATIVES AVEC TERRASSE LAFAYETTE !';
 
+  content.setAttribute('aria-labelledby', 'home-btn');
   content.appendChild(logo);
   text.appendChild(tagline);
   text.appendChild(description);
